@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 
-session_name('muqueca');
+session_name('unique_session_name');
 session_start();
 
 define('FISHY_ROOT_PATH', dirname(__FILE__));
