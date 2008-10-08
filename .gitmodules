@@ -1,0 +1,3 @@
+[submodule "vendor/fishyfw"]
+	path = vendor/fishyfw
+	url = git://github.com/wilkerlucio/fishy-framework.git
