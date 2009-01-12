@@ -1,11 +1,13 @@
 <?php
 
-$conf = new Fishy_Configuration();
-
-$conf->default_controller = 'Main';
-$conf->default_action = 'index';
-$conf->routes = array(
-	array('(.*)', 'main/$1')
-);
-
-return $conf;
+class UserRouter extends Fishy_Router
+{
+	public function setup()
+	{
+		$this->map_connect(':controller/:action/:id');
+		$this->map_connect(':controller/:action/:id.:format');
+		$this->map_connect(':controller/:action');
+		$this->map_connect(':controller/:action.:format');
+		$this->map_connect('', array("controller" => "main"));
+	}
+}
