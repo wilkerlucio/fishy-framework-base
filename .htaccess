@@ -4,4 +4,4 @@ RewriteCond $1 !^(index.php|public/)
 RewriteRule ^([^.]+)$ cache/$1.html [QSA]
 
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^cache/(.*?).html$ /usina_de_negocios/index.php/$1 [L]
+RewriteRule ^cache/(.*?).html$ index.php/$1 [L]
