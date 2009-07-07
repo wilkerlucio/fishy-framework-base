@@ -1,7 +1,23 @@
 RewriteEngine On
 
-RewriteCond $1 !^(index.php|public/)
-RewriteRule ^([^.]+)$ cache/$1.html [QSA]
+RewriteCond public/$1 -F
+RewriteRule (.+) public/$1 [L]
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^cache/(.*?).html$ index.php/$1 [L]
+# create your slice public routes here
+#
+# sample:
+# RewriteCond slices/my_slice/public/$1 -F
+# RewriteRule (.+) slices/my_slice/public/$1 [L]
+#
+# then you need to add your slice public dir into
+# skip cond for index.php processing. for example,
+# if your how was new the public cond will be this:
+#
+# RewriteCond $0 !^(index\.php|public/)
+#
+# so you need to skip your slice public directory:
+#
+# RewriteCond $0 !^(index\.php|public/|slices/my_slice/public/)
+
+RewriteCond $0 !^(index\.php|public/|slices/gwm/public/)
+RewriteRule (.*) index.php/$1 [QSA]
