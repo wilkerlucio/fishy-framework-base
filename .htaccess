@@ -19,5 +19,5 @@ RewriteRule (.+) public/$1 [L]
 #
 # RewriteCond $0 !^(index\.php|public/|slices/my_slice/public/)
 
-RewriteCond $0 !^(index\.php|public/|slices/my_slice/public/)
+RewriteCond $0 !^(index\.php|public/)
 RewriteRule (.*) index.php/$1 [QSA]
